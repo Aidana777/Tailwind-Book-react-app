@@ -1,0 +1,20 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    background-color: lightblue;
+    align-items: center;
+    width: 1240px;
+    padding: 20px;
+
+}
+.basket{
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+.link{
+    font-size: 25px;
+    color: black;
+    
+}

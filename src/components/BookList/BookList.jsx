@@ -16,7 +16,7 @@ const BookList = () => {
               <h2 className='author'>{card.Author}</h2>
               <h3 className='text_name'>{card.description}</h3>
               <p className='price'>{card.price}$</p>
-
+              <button>Add To Card</button>
             </div>
           )
         })
