@@ -21,14 +21,14 @@ export const Card = ({ card }) => {
   }
 
   return (
-    <div className="card" >
-      <img src={card.image} alt='' />
+    <div className="w-[300px] h-[400px]" >
+      <img src={card.image} className="w-[200px] h-[200px] bg-center cursor-pointer bg-no-repeat bg-cover" alt='' />
       <h2 className='title'>{card.name}</h2>
       <h2 className='author'>{card.Author}</h2>
       <h3 className='text_name'>{card.description}</h3>
       <p className='price'>{card.price}$</p>
-      <button onClick={handleAdd}>Add To Card ( {count} )</button>
-      <button onClick={removeItem}>Remove</button>
+      <button className="w-[130px] h-[40px]  bg-blue-200" onClick={handleAdd}>Add To Card ( {count} )</button>
+    
     </div>
   )
 }
