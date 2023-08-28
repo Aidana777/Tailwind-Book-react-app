@@ -50,8 +50,6 @@ const OneCardPage = () => {
       }
     }
   };
-
-
   return (
     <div className="p-8">
       <img
