@@ -9,7 +9,7 @@ const OneCardPage = () => {
   const initialCount = storedCount ? parseInt(storedCount) : 0;
   const [count, setCount] = useState(initialCount);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   if (!card) {
     return <div>Карточка не найдена</div>;
@@ -21,6 +21,7 @@ const OneCardPage = () => {
     try {
       localStorage.removeItem(`${id}_count`);
       console.log("Позиция удалена:", id);
+      navigate("/booklist");
     } catch (error) {
       console.error("Ошибка удаления позиции:", error);
     }
@@ -50,42 +51,50 @@ const OneCardPage = () => {
       }
     }
   };
-  return (
-    <div className="p-8">
-      <img
-        src={card.image}
-        className="w-[200px] h-[200px] bg-center cursor-pointer bg-no-repeat bg-cover mx-auto mb-4"
-        alt=""
-      />
-      <h2 className="text-3xl font-semibold mb-2">{card.name}</h2>
-      <h2 className="text-lg text-gray-600 mb-2">{card.Author}</h2>
-      <p className="text-gray-700 mb-4">{card.description}</p>
-      <div className="mb-4">
-        <span className="font-semibold">Count:</span> {count}
-      </div>
-      <div className="mb-4">
-        <span className="font-semibold">Total Price:</span> ${totalPrice}
-      </div>
-      <div className="flex space-x-2">
-        <button
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300 transform hover:scale-105"
-          onClick={handleDelete}
-        >
-          Delete
-        </button>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
-          onClick={increaseCount}
-        >
-          Increase Count
-        </button>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
-          onClick={decreaseCount}
-        >
-          Decrease Count
-        </button>
 
+  return (
+    <div className="flex">
+      <div className="w-3/4 p-8">
+        <img
+          src={card.image}
+          className="w-[200px] h-[200px] bg-center cursor-pointer bg-no-repeat bg-cover mx-auto mb-4"
+          alt=""
+        />
+        <h2 className="text-3xl font-semibold mb-2">{card.name}</h2>
+        <h2 className="text-lg text-gray-600 mb-2">{card.Author}</h2>
+        <p className="text-gray-700 mb-4">{card.description}</p>
+        <div className="mb-4">
+          <span className="font-semibold">Count:</span> {count}
+        </div>
+        <div className="mb-4">
+          <span className="font-semibold">Total Price:</span> ${totalPrice}
+        </div>
+        <div className="flex space-x-2 mt-4">
+          <button
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300 transform hover:scale-105"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
+            onClick={increaseCount}
+          >
+            Increase Count
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
+            onClick={decreaseCount}
+          >
+            Decrease Count
+          </button>
+        </div>
+        <button
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
+          onClick={() => navigate(-1)} 
+        >
+          Назад
+        </button>
       </div>
     </div>
   );
