@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "./components/AuthPage/AuthPage";
 import BookList from "./components/BookList/BookList";
@@ -6,8 +6,8 @@ import OneCardPage from "./components/oneCardPage/OneCardPage";
 import Cart from "./components/Card/Card";
 
 const App = () => {
-  // Здесь предполагается, что у вас будет массив cartItems
-  const cartItems = []; // Замените это на свой код получения элементов корзины
+  
+  const cartItems = []; 
 
   return (
     <div className="App">
