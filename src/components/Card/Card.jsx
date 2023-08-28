@@ -14,22 +14,25 @@ const Card = ({ card }) => {
   };
 
   return (
-    <div className="w-72 h-96 bg-white rounded-lg shadow-md p-4">
-      <img src={card.image} className="w-48 h-48 mx-auto mb-4 object-cover" alt={card.name} />
-      <h2 className="text-xl font-semibold mb-1">{card.name}</h2>
-      <h2 className="text-gray-600 text-sm mb-2">{card.author}</h2>
-      <p className="text-gray-700 text-sm mb-4">{card.description}</p>
-      <div className="flex items-center justify-between mb-2">
-        <p className="text-gray-800 font-semibold">${card.price}</p>
-        <button
-          className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-          onClick={handleAdd}
-        >
-          Add To Cart ({count})
-        </button>
+    <div className="w-full max-w-xs mx-auto bg-white rounded-lg shadow-md overflow-hidden transition transform hover:scale-105">
+      <img src={card.image} className="w-full h-48 object-cover" alt={card.name} />
+      <div className="p-4">
+        <h2 className="text-xl font-semibold mb-1">{card.name}</h2>
+        <h2 className="text-gray-600 text-sm mb-2">{card.author}</h2>
+        <p className="text-gray-700 text-sm mb-4">{card.description}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-gray-800 font-semibold">${card.price}</p>
+          <button
+            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+            onClick={handleAdd}
+          >
+            Добавить в корзину ({count})
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Card;
+

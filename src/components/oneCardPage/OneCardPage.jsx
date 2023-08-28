@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import data from "../../db.json";
 
 const OneCardPage = () => {
   const { id } = useParams();
-  const card = data.find(item => item.id === id);
+  const card = data.find((item) => item.id === id);
   const storedCount = localStorage.getItem(`${id}_count`);
   const initialCount = storedCount ? parseInt(storedCount) : 0;
   const [count, setCount] = useState(initialCount);
 
+  const navigate = useNavigate()
+
   if (!card) {
-    return <div>Card not found</div>;
+    return <div>Карточка не найдена</div>;
   }
 
   const totalPrice = card.price * count;
@@ -18,11 +20,12 @@ const OneCardPage = () => {
   const handleDelete = () => {
     try {
       localStorage.removeItem(`${id}_count`);
-      console.log("Item deleted:", id);
+      console.log("Позиция удалена:", id);
     } catch (error) {
-      console.error("Error deleting item:", error);
+      console.error("Ошибка удаления позиции:", error);
     }
   };
+
   const increaseCount = () => {
     const newCount = count + 1;
     setCount(newCount);
@@ -41,12 +44,13 @@ const OneCardPage = () => {
       try {
         localStorage.removeItem(`${id}_count`);
         console.log("Item deleted:", id);
+        navigate("/booklist");
       } catch (error) {
         console.error("Error deleting item:", error);
       }
     }
   };
-  
+
 
   return (
     <div className="p-8">
@@ -66,23 +70,24 @@ const OneCardPage = () => {
       </div>
       <div className="flex space-x-2">
         <button
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300 transform hover:scale-105"
           onClick={handleDelete}
         >
           Delete
         </button>
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
           onClick={increaseCount}
         >
           Increase Count
         </button>
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
           onClick={decreaseCount}
         >
           Decrease Count
         </button>
+
       </div>
     </div>
   );

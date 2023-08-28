@@ -7,11 +7,11 @@ import OneCardPage from "./components/oneCardPage/OneCardPage";
 const App = () => {
   return (
     <div className="App">
-        <Routes>
-          <Route path="/" element={<AuthPage />} />
-          <Route path="/booklist" element={<BookList />} />
-          <Route path="/:id" element={<OneCardPage />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/booklist" element={<BookList />} />
+        <Route path="/booklist/:id" element={<OneCardPage />} />
+      </Routes>
 
     </div>
   );
