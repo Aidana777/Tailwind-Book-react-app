@@ -8,7 +8,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0 mt-[10px]">
       <input
         type="text"
         placeholder="Search..."

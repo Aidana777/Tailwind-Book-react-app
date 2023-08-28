@@ -54,14 +54,14 @@ const OneCardPage = () => {
 
   return (
     <div className="flex">
-      <div className="w-3/4 p-8">
+      <div className="w-full p-4 lg:w-3/4 lg:p-8">
         <img
           src={card.image}
-          className="w-[200px] h-[200px] bg-center cursor-pointer bg-no-repeat bg-cover mx-auto mb-4"
+          className="w-48 h-48 bg-center cursor-pointer bg-no-repeat bg-cover mx-auto mb-4"
           alt=""
         />
-        <h2 className="text-3xl font-semibold mb-2">{card.name}</h2>
-        <h2 className="text-lg text-gray-600 mb-2">{card.Author}</h2>
+        <h2 className="text-2xl font-semibold mb-2">{card.name}</h2>
+        <h2 className="text-base text-gray-600 mb-2">{card.Author}</h2>
         <p className="text-gray-700 mb-4">{card.description}</p>
         <div className="mb-4">
           <span className="font-semibold">Count:</span> {count}
@@ -69,7 +69,7 @@ const OneCardPage = () => {
         <div className="mb-4">
           <span className="font-semibold">Total Price:</span> ${totalPrice}
         </div>
-        <div className="flex space-x-2 mt-4">
+        <div className="flex flex-col space-y-2 mt-4">
           <button
             className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300 transform hover:scale-105"
             onClick={handleDelete}
@@ -101,3 +101,4 @@ const OneCardPage = () => {
 };
 
 export default OneCardPage;
+

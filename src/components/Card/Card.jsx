@@ -23,7 +23,7 @@ const Card = ({ card }) => {
         <div className="flex items-center justify-between">
           <p className="text-gray-800 font-semibold">${card.price}</p>
           <button
-            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+            className="px-4 py-2 ml-[10px] bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 transform hover:scale-105"
             onClick={handleAdd}
           >
             Добавить в корзину ({count})
@@ -35,4 +35,3 @@ const Card = ({ card }) => {
 };
 
 export default Card;
-

@@ -9,8 +9,11 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2 className="text-2xl font-semibold mb-4">Register</h2>
+    <form onSubmit={handleSubmit} className="w-full lg:w-auto p-4 lg:p-0">
+      {/* Add responsive classes for mobile styling */}
+      <h2 className="text-xl lg:text-2xl font-semibold mb-4">
+        Register
+      </h2>
       <input
         type="email"
         placeholder="Email"
@@ -36,4 +39,5 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
 

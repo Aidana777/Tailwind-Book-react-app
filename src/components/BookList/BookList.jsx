@@ -27,6 +27,7 @@ const BookList = () => {
     });
     setSearchResults(sortedResults);
   };
+  
   const handleCheckboxChange = () => {
     setShowOnlyAvailable(!showOnlyAvailable);
   
@@ -37,6 +38,7 @@ const BookList = () => {
       setSearchResults(data);
     }
   };
+  
   const handleReset = () => {
     setSearchResults(data);
     setSortAsc(true);
@@ -44,7 +46,7 @@ const BookList = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <Sidebar
         products={data}
         onSortChange={handleSortChange}
@@ -52,9 +54,9 @@ const BookList = () => {
         onReset={handleReset}
         sortAsc={sortAsc}
       />
-      <div>
+      <div className="mt-6 md:mt-0 md:ml-10">
         <SearchBar onSearch={handleSearch} />
-        <div className="grid grid-cols-3 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 md:gap-10">
           {searchResults.map((card) => (
             <Card key={card.id} card={card} />
           ))}

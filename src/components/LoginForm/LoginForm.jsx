@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // Corrected declaration
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -14,11 +14,11 @@ const LoginForm = () => {
       setErrorMessage("Пароль должен состоять минимум из 8 символов и включать буквы и цифры.");
       return;
     }
-    navigate("/booklist"); // Corrected usage
+    navigate("/booklist");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="w-full max-w-xs mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Login</h2>
       <input
         type="email"
